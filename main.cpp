@@ -3,7 +3,6 @@
 using namespace std;
 
 
-// Estrutura para ler os valores do vetor:
 void entrada_vetor(float v[], int n){
   for(int i = 0; i < n; i++)
   {
@@ -18,14 +17,14 @@ void entrada_vetor(float v[], int n){
   cout << endl;
 }
 
-void calcular_media(float *ponteiro, float vetor[], int n)
+float calcular_media(float vetor[], int n)
 {
   float media, soma = 0;
 
   for(int i = 0; i < n; i++){
     soma = soma + vetor[i];
   }
-  *ponteiro = soma/n;
+  return soma/n;
 }
 
 void imprime_vetor(float vetor[], int n)
@@ -35,10 +34,12 @@ void imprime_vetor(float vetor[], int n)
   }
   cout << endl;
 }
+;
 
-
-float calcdesv(int media, float vet[], int n)
+float calcdesv( float vet[], int n)
 {
+  float media=0;
+  media = calcular_media(vet, n);
   float desvio=0;
   for(int i = 0; i < n; i++){
   desvio += pow((vet[i]-media),2);
@@ -53,7 +54,7 @@ float calcdesv(int media, float vet[], int n)
 int main() 
 {
   int n=0,menu=0;
-  float media,desvio;
+  float media = 0, desvio;
   float *pntMedia;
   pntMedia = &media;
 
@@ -80,80 +81,41 @@ while(menu!=5){
   
 cin >> menu;
 cout << endl;
-  if (menu==1)
-    {
-      imprime_vetor(v, n);
-    }
-
-    if (menu==2)
-    {
-      calcular_media(pntMedia, v, n);
-     cout << "media igual a " << media << endl;   
-    }
-
-    if (menu == 3)
-    {
-      calcular_media(pntMedia, v, n);
-      desvio = calcdesv(media, v, n);
-        cout << "desvio padrão é " << desvio << endl;
-    }
-
-    if (menu == 5)
-    {
-      cout << "desligando" << endl;
-    }
-cout << endl;
-}
-}
-/*
 switch(menu)
 {
 
     case 1:
     {
-      calcular_media(pntMedia, v, n);
+      imprime_vetor(v, n);
+      break;
     }
 
     case 2:
     {
-    calcular_media(pntMedia, v, n);
-    desvio = calcdesv(media, v, n);
+     media = calcular_media(v, n);
+     cout << "media igual a " << media << endl; 
+      break;
     }
     case 3:
     {
-      
+      desvio = calcdesv(v, n);
+      cout << "desvio padrão é " << desvio << endl;
     }
     case 4:
     {
-      imprime_vetor(v, n);
+      break;
     }
     case 5:{
       cout << "desligando" << endl;
+      break;
     }
     
     default:
     {
       cout << "valor invalido Digite novamente" <<  endl;
+      break;
     }
 }
-
-if (menu==1)
-{
-imprime_vetor(v, n);
+cout << endl;
 }
-
-else if (menu==2)
-{
-calcular_media(pntMedia, v, n);
 }
-
-else if (menu == 3)
-{
-calcular_media(pntMedia, v, n);
-desvio = calcdesv(media, v, n);
-}
-
-else if (menu == 5)
-{
-cout << "desligando" << endl;
-}*/
