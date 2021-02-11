@@ -8,14 +8,16 @@ using namespace std;
 
 intEstatistica::intEstatistica(int max)
 {
+    cout << "Criando objeto intEstatistica" << endl;
     size = 0;
     maxsize = max;
 
-    vet = new int[maxsize];
+    vet = new float[maxsize];
 }
 
 intEstatistica::~intEstatistica()
 {
+    cout << "Detruindo objeto intEstatistica" << endl;
     delete[] vet;
 }
 
@@ -35,7 +37,7 @@ int intEstatistica::get(int k)
     }
 }
 
-void intEstatistica::set(int k, int val)
+void intEstatistica::set(int k, float val)
 {
     if (k >= 0 && k < size)
         vet[k] = val;
@@ -43,7 +45,7 @@ void intEstatistica::set(int k, int val)
         cout << "ERRO: Indice invalido!" << endl;
 }
 
-void intEstatistica::insereInicio(int val)
+void intEstatistica::insereInicio(float val)
 {
     if (size == 0)
     { //lista vazia. Sera o unico no da lista
@@ -54,7 +56,7 @@ void intEstatistica::insereInicio(int val)
         insereK(0, val);
 }
 
-void intEstatistica::insereFinal(int val)
+void intEstatistica::insereFinal(float val)
 {
     if (size == maxsize)
     {
@@ -78,10 +80,10 @@ void intEstatistica::removeFinal()
         cout << "ERRO: Lista Vazia!" << endl;
         exit(1);
     }
-    size += 1;
+    size -= 1;
 }
 
-void intEstatistica::insereK(int k, int val)
+void intEstatistica::insereK(int k, float val)
 {
     if (size == maxsize)
     {
@@ -187,7 +189,7 @@ float intEstatistica::calcQ1()
     }
 
     if (tam % 2 == 0)
-        Q1 = (v[(tam - 1) / 2] + v[(tam / 2)]) / 2;
+        Q1 = (v[(tam / 2) - 1] + v[(tam / 2)]) / 2;
     else
         Q1 = v[(tam) / 2];
 
@@ -196,7 +198,37 @@ float intEstatistica::calcQ1()
 
 float intEstatistica::calcQ3()
 {
-    
+    int tam;
+    float mediana;
+    float Q3;
+
+    mediana = calcMediana();
+
+    if (size % 2 == 0)
+        tam = (size / 2) + 1;
+    else
+        tam = size / 2;
+
+    float *v;
+    v[tam];
+
+    int aux;
+    aux = tam;
+
+    for (int i = 0; i < tam; i++ && aux++)
+    {
+        v[i] = vet[aux];
+
+        if (i == 0)
+            v[i] = mediana;
+    }
+
+    if (tam % 2 == 0)
+        Q3 = (v[(tam / 2) - 1] + v[(tam / 2)]) / 2;
+    else
+        Q3 = v[(tam) / 2];
+
+    return Q3;
 }
 
 void intEstatistica::realoca(int novoTam)
@@ -204,7 +236,7 @@ void intEstatistica::realoca(int novoTam)
     if (novoTam >= size)
     {
         // alocar um novo vetor com o novo tamanho
-        int *novoVet = new int[novoTam];
+        float *novoVet = new float[novoTam];
 
         // copiar todos os elementos do vetor antigo para o novo
         for (int i = 0; i < size; i++)
