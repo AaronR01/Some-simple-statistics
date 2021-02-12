@@ -16,14 +16,23 @@ int main()
     cout << endl;
 
     intEstatistica l(tam); /// criando um objeto intEstatistica
+    l.insereInicio(0.05);
+    l.insereFinal(0.15);
+    l.insereFinal(0.10);
+    l.insereFinal(0.20);
+    l.insereFinal(0.14);
+    l.insereFinal(0.15);
+    l.insereFinal(0.21);
+ 
 
-    float vetor[30]{3.36, 3.62, 3.64, 3.68, 3.7, 3.73, 3.73, 3.81, 3.83, 3.92, 4.08, 4.1, 4.11, 4.12, 4.14, 4.15, 4.15, 4.16, 4.2, 4.36, 4.38, 4.39, 4.39, 4.4, 4.45, 4.47, 4.56, 4.57, 4.6, 4.98};
 
-    l.insereVetor(vetor, 30);
-    l.imprimeVetor();
 
-    cout << "O valor de Q1 é: " << l.calcQ1() << endl;
-    cout << setprecision(3) << "O valor de Q3 é: " << l.calcQ3() << endl;
+    cout << "o valor da Media é: " << l.calcMedia() << endl;
+    cout << "o valor da Mediana é: " << l.calcMediana() << endl;
+    cout << "o valor da Desvio padrao é: " << l.calcDesvioPadrao() << endl;
+    cout << "o valor da variança é: " << l.calcVariancia() << endl;
+  //  cout << "O valor de Q1 é: " << l.calcQ1() << endl;
+  //  cout << setprecision(3) << "O valor de Q3 é: " << l.calcQ3() << endl;
 
     return 0;
 }
