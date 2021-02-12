@@ -9,7 +9,7 @@ class intEstatistica
     private:
     int maxsize;              /// tamanho máximo do vetor
     int size;                 /// quantidade de elementos no vetor
-    float *vet;                 /// vetor
+    float *vet;               /// vetor
 
 
     public:
@@ -17,14 +17,15 @@ class intEstatistica
     ~intEstatistica();        /// destrutor
 
     
-    int get(int k);                 /// retorna o valor no índice k
-    void set(int k, float val);     /// altera o valor no índice k
-    void insereInicio(float val);   /// insere elemento no início da lista
-    void insereFinal(float val);    /// insere elemento no final da lista
-    void removeInicio();            /// remove elemento no inicio da lista
-    void removeFinal();             /// remove elemento no final da lista
-    void insereK(int k, float val); /// insere um valor no índice k da lista
-    void removeK(int k);            /// remove um valor no índice k da lista
+    int get(int k);                        /// retorna o valor no índice k
+    void set(int k, float val);            /// altera o valor no índice k
+    void insereInicio(float val);          /// insere elemento no início da lista
+    void insereFinal(float val);           /// insere elemento no final da lista
+    void removeInicio();                   /// remove elemento no inicio da lista
+    void removeFinal();                    /// remove elemento no final da lista
+    void insereK(int k, float val);        /// insere um valor no índice k da lista
+    void removeK(int k);                   /// remove um valor no índice k da lista
+    void insereVetor(float vet[], int tam); /// insere um vetor no
 
 
     float calcMedia();         /// retorna a media de todos os elementos da lista

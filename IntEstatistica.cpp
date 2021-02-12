@@ -13,6 +13,7 @@ intEstatistica::intEstatistica(int max)
     maxsize = max;
 
     vet = new float[maxsize];
+    /// vet[maxsize]{3.36, 3.62, 3.64, 3.68, 3.7, 3.73, 3.73, 3.81, 3.83, 3.92, 4.08, 4.1, 4.11, 4.12, 4.14, 4.15, 4.15, 4.16, 4.2, 4.36, 4.38, 4.39, 4.39, 4.4, 4.45, 4.47, 4.56, 4.57, 4.6, 4.98};
 }
 
 intEstatistica::~intEstatistica()
@@ -113,6 +114,14 @@ void intEstatistica::removeK(int k)
     }
     else
         cout << "ERRO: Indice invalido!" << endl;
+}
+
+void intEstatistica::insereVetor(float vetor[], int tam)
+{
+    for(int i = 0; i <= tam; i++)
+    {
+        insereFinal(vet[i]); 
+    }
 }
 
 float intEstatistica::calcMedia()
